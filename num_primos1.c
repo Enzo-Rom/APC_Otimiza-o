@@ -34,15 +34,15 @@ int main(){
 
     for (long i = 2; i < n; i++)
     {
-        eprimo = 1;
+        eprimo = true;
         for (long j = 2; j < i; j++)
         {
             if (i % j == 0)
             {
-                eprimo = 0;
+                eprimo = false;
             }
         }
-        if (eprimo == 1)
+        if (eprimo == true)
         {
             num_primos[ind] = i;
             ind++;

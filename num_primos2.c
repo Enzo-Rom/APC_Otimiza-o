@@ -5,7 +5,7 @@
 #include <stdbool.h>
 
 // mil 1000, cem mil 100000, milhao 1000000, bilhao 1000000000
-//      <1s,            19s,         >10min,
+//       0s,             1s,              ?,
 
 int main(){
     //inicialização do arquivo.
@@ -34,15 +34,15 @@ int main(){
 
     for (long i = 2; i < n; i++)
     {
-        eprimo = 1;
-        for (long j = 2; j < i; j++)
+        eprimo = true;
+        for (long j = 2; j < i && eprimo == true; j++)
         {
             if (i % j == 0)
             {
-                eprimo = 0;
+                eprimo = false;
             }
         }
-        if (eprimo == 1)
+        if (eprimo == true)
         {
             num_primos[ind] = i;
             ind++;
