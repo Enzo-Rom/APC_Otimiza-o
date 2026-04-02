@@ -4,8 +4,8 @@
 #include <time.h>
 #include <stdbool.h>
 
-// mil 1000, cem mil 100000, milhao 1000000, bilhao 1000000000
-//       0s,             1s,              ?,
+//cem mil 100000, milhao 1000000, bilhao 1000000000
+//            0s,            10s,
 
 int main(){
     //inicialização do arquivo.
@@ -35,9 +35,11 @@ int main(){
     for (long i = 2; i < n; i++)
     {
         eprimo = true;
-        for (long j = 2; j < i && eprimo == true; j++)
+        //não precisamos continuar testando, caso i ja seja divisivel por alguem
+        for (long j = 0; num_primos[j] <= n && num_primos[j] != 0 && eprimo == true; j++)
         {
-            if (i % j == 0)
+            //só precisamos testar se i eh divisivel pelos primos menores que ele
+            if (i % num_primos[j] == 0)
             {
                 eprimo = false;
             }

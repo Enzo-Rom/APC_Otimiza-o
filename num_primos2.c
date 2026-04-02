@@ -35,6 +35,7 @@ int main(){
     for (long i = 2; i < n; i++)
     {
         eprimo = true;
+        //não precisamos continuar testando, caso i ja seja divisivel por alguem
         for (long j = 2; j < i && eprimo == true; j++)
         {
             if (i % j == 0)
