@@ -4,7 +4,7 @@
 #include <time.h>
 #include <stdbool.h>
 
-// mil 1000, cem mil 100000, milhao 1000000, bilhao 1000000000
+// mil 1000, cem mil 100000, milhao 1000000,
 //      <1s,            19s,         >10min,
 
 int main(){

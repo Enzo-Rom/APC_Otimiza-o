@@ -4,8 +4,8 @@
 #include <time.h>
 #include <stdbool.h>
 
-//cem mil 100000, milhao 1000000, dez milhoes 10000000
-//            0s,            10s,               >10min
+// milhao 1000000, dez milhoes 10000000, cem milhoes 100000000,
+//             0s,                   1s,                   24s,
 
 int main(){
     //inicialização do arquivo.
@@ -27,7 +27,10 @@ int main(){
 
     int ind = 0; //indice do vetor de primos.
     bool eprimo;
-    
+
+    //raiz de n, só vamos fazer o teste de divisibilidade até ela
+    double raiz;
+
     //variaveis de medição do tempo de execução
     time_t t_inicio = time(NULL);
     time_t t_fim;
@@ -35,8 +38,9 @@ int main(){
     for (long i = 2; i < n; i++)
     {
         eprimo = true;
+        raiz = sqrt(i);
         //não precisamos continuar testando, caso i ja seja divisivel por alguem
-        for (long j = 0; num_primos[j] <= n && num_primos[j] != 0 && eprimo == true; j++)
+        for (long j = 0; num_primos[j] <= raiz && num_primos[j] != 0 && eprimo == true; j++)
         {
             //só precisamos testar se i eh divisivel pelos primos menores que ele
             if (i % num_primos[j] == 0)

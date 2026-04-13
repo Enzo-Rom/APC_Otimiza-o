@@ -4,8 +4,8 @@
 #include <time.h>
 #include <stdbool.h>
 
-// mil 1000, cem mil 100000, milhao 1000000, bilhao 1000000000
-//       0s,             1s,              ?,
+// mil 1000, cem mil 100000, milhao 1000000,
+//       0s,             1s,           123s,
 
 int main(){
     //inicialização do arquivo.
