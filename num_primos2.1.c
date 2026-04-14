@@ -4,8 +4,8 @@
 #include <time.h>
 #include <stdbool.h>
 
-// dez milhoes 10000000, cem milhoes 100000000,
-//                   0s,                   14s,
+//cem milhoes 100000000, Bilhao 1000000000,
+//                   2s,               25s,
 
 int main(){
     //inicialização do arquivo.
@@ -16,33 +16,41 @@ int main(){
         return 1;
     }
 
-    // numero maximo até onde calcularemos os primos.
-    // tipo unsigned porque so consideraremos os numeros naturais.
+    //Numero maximo até onde calcularemos os naop.
+    //Tipo unsigned porque so consideraremos os numeros naturais.
     size_t n;
     scanf("%lu", &n);
 
-    //alocacao de um vetor com n booleanos
-    bool *primos;
-    primos = calloc(n, sizeof(bool));
+    //Alocacao de um vetor com n booleanos
+    //Para cada posição, naop diz se o indice é primo
+    bool *naop;
+    naop = calloc(n, sizeof(bool));
 
-    //Quantide de numeros primos encontrados
+    //Quantide de numeros naop encontrados
     size_t qt = 0;
     
-    //variaveis de medição do tempo de execução
+    //Variaveis de medição do tempo de execução
     time_t t_inicio = time(NULL);
     time_t t_fim;
 
+    //Para cada numero, diz que seus multiplos não são primos
     for (size_t i = 2; i < n; i++)
     {
-        for (size_t j = 2*i; j < n; j += i)
+        //So preciso eliminar os multiplos de numeros primos
+        if (naop[i] == false)
         {
-            primos[j] = true;
+            //Podemos começar no quadrado do numero, porque os numeros menores que ele devem ter um divisor menor que i
+            for (size_t j = i*i; j < n; j += i)
+            {
+                naop[j] = true;
+            }
         }
     }
 
+    //Se o numero é primo, naop eh falso, portanto ele sera printado no arquivo
     for (size_t i = 2; i < n; i++)
     {
-        if (primos[i] == false)
+        if (naop[i] == false)
         {
             fprintf(file, "%lu - ", i);
             qt++;
@@ -59,7 +67,7 @@ int main(){
 
     //Deve-se liberar a memoria alocada dinamicamente e o arquivo 
     //aberto durante a execucao ao fim do programa.
-    free(primos); 
+    free(naop); 
     fclose(file);
     return 0;
 }

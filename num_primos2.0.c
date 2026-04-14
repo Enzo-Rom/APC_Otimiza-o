@@ -10,7 +10,7 @@
 int main(){
     //inicialização do arquivo.
     FILE *file;
-    file = fopen("Numerosnaop.txt", "w");
+    file = fopen("NumerosPrimos.txt", "w");
     if (file == NULL) {
         printf("Erro ao abrir o arquivo.\n");
         return 1;
@@ -56,7 +56,7 @@ int main(){
         }
     }
 
-    printf("%lu Números naop\n", qt);
+    printf("%lu Números Primos\n", qt);
     t_fim = time(NULL);
     printf(" Tempo de execucao: %lds\n", t_fim - t_inicio);
 
