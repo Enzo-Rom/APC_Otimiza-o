@@ -26,7 +26,7 @@ int main(){
     bool *naop;
     naop = calloc(n, sizeof(bool));
 
-    //Quantide de numeros naop encontrados
+    //Quantide de numeros primos encontrados
     size_t qt = 0;
     
     //Variaveis de medição do tempo de execução
