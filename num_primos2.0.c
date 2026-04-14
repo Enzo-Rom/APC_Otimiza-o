@@ -4,8 +4,8 @@
 #include <time.h>
 #include <stdbool.h>
 
-// mil 1000, cem mil 100000, milhao 1000000,
-//      <1s,            19s,         >10min,
+// dez milhoes 10000000, cem milhoes 100000000,
+//                   0s,                   14s,
 
 int main(){
     //inicialização do arquivo.
@@ -22,7 +22,7 @@ int main(){
     scanf("%lu", &n);
 
     //alocacao de um vetor com n booleanos
-    int *primos;
+    bool *primos;
     primos = calloc(n, sizeof(bool));
 
     //Quantide de numeros primos encontrados
@@ -34,7 +34,7 @@ int main(){
 
     for (size_t i = 2; i < n; i++)
     {
-        for (size_t j = i; j < n; j += i)
+        for (size_t j = 2*i; j < n; j += i)
         {
             primos[j] = true;
         }
